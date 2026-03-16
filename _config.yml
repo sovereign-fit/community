@@ -43,9 +43,9 @@ author:
 # Giscus commenting system
 giscus:
   repo: "sovereign-fit/community"
-  repo_id: ""
+  repo_id: "R_kgDORnPRyQ"
   category: "Newsletter Discussion"
-  category_id: ""
+  category_id: "DIC_kwDORnPRyc4C4g4B"
   mapping: "pathname"
   reactions_enabled: "1"
   emit_metadata: "0"
