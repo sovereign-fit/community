@@ -21,29 +21,17 @@ description: "The weekly newsletter for fitness trainers and wellness profession
     build systems that grow their business — even when they're not working.
   </p>
 
-  <!-- Subscribe Form - Systeme.io Integration Point -->
+  <!-- Subscribe CTA → Links to Systeme.io squeeze page -->
   <div class="subscribe" id="subscribe">
-    <form class="subscribe__form" id="subscribe-form" action="#" method="POST">
-      <!-- 
-        SYSTEME.IO INTEGRATION:
-        Replace this form's action URL with your Systeme.io form endpoint.
-        Example: action="https://systeme.io/embedded/YOUR_FORM_ID/subscribe"
-        The input name should match your Systeme.io field (usually "email").
-      -->
-      <input
-        type="email"
-        name="email"
-        class="subscribe__input"
-        id="subscribe-email"
-        placeholder="Enter your email"
-        required
-        aria-label="Email address"
-      >
-      <button type="submit" class="subscribe__btn" id="subscribe-btn">
-        Join Free →
-      </button>
-    </form>
-    <p class="subscribe__note">Join 100% free. Unsubscribe anytime. No spam, ever.</p>
+    <a href="https://bcox.systeme.io/6c3f8893" target="_blank" rel="noopener" class="subscribe__btn subscribe__btn--hero" id="subscribe-btn">
+      Join Free → Get the 5-Reps Newsletter
+    </a>
+    <p class="subscribe__note">100% free. Unsubscribe anytime. No spam, ever.</p>
+  </div>
+
+  <!-- Hero Image -->
+  <div class="hero__image" id="hero-image">
+    <img src="{{ '/assets/img/hero.png' | relative_url }}" alt="Athletic silhouette training in a modern gym with teal and purple lighting" loading="lazy">
   </div>
 
   <!-- Social Proof Stats -->
@@ -146,18 +134,8 @@ description: "The weekly newsletter for fitness trainers and wellness profession
   </p>
 
   <div class="subscribe" id="subscribe-bottom">
-    <form class="subscribe__form" id="subscribe-form-bottom" action="#" method="POST">
-      <input
-        type="email"
-        name="email"
-        class="subscribe__input"
-        placeholder="Enter your email"
-        required
-        aria-label="Email address"
-      >
-      <button type="submit" class="subscribe__btn" id="subscribe-btn-bottom">
-        Join Free →
-      </button>
-    </form>
+    <a href="https://bcox.systeme.io/6c3f8893" target="_blank" rel="noopener" class="subscribe__btn subscribe__btn--hero" id="subscribe-btn-bottom">
+      Join Free → Get the 5-Reps Newsletter
+    </a>
   </div>
 </section>
