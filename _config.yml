@@ -1,0 +1,53 @@
+# Sovereign Fit Community - Jekyll Configuration
+title: "Sovereign Fit"
+description: "The open-source community hub for fitness & wellness professionals. Build your empire. Own your audience."
+url: "https://sovereign-fit.github.io"
+baseurl: "/community"
+
+# Build settings
+markdown: kramdown
+theme: null
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /archive/:year/:month/:day/:title/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      comments: true
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - LICENSE
+  - node_modules
+  - vendor
+
+# SEO
+author:
+  name: "Sovereign Fit"
+  url: "https://sovereign-fit.github.io/community"
+
+# Giscus commenting system
+giscus:
+  repo: "sovereign-fit/community"
+  repo_id: ""
+  category: "Newsletter Discussion"
+  category_id: ""
+  mapping: "pathname"
+  reactions_enabled: "1"
+  emit_metadata: "0"
+  theme: "dark"
+  lang: "en"

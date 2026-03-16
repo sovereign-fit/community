@@ -1,0 +1,39 @@
+---
+layout: default
+title: "Newsletter Archive"
+description: "Browse past issues of the Sovereign Fit newsletter. Business tips, coaching concepts, and tools for fitness & wellness professionals."
+permalink: /archive/
+---
+
+<div class="archive" id="archive-page">
+  <header class="archive__header">
+    <h1 class="archive__title">Newsletter Archive</h1>
+    <p class="archive__desc">
+      Browse past issues. VIP subscribers get every issue 
+      <strong>one week early</strong> via email.
+    </p>
+  </header>
+
+  {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+  {% for year in posts_by_year %}
+  <h2 class="archive__year">{{ year.name }}</h2>
+  <ul class="archive__list">
+    {% for post in year.items %}
+    <li class="archive__item">
+      <a href="{{ post.url | relative_url }}" class="archive__link" id="archive-{{ post.slug }}">
+        <span class="archive__link-date">{{ post.date | date: "%b %d" }}</span>
+        <span class="archive__link-title">{{ post.title }}</span>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endfor %}
+
+  {% if site.posts.size == 0 %}
+  <div class="post-card" style="text-align: center; margin-top: var(--space-2xl);">
+    <div class="feature__icon" style="font-size: 2.5rem; margin-bottom: var(--space-md);">📬</div>
+    <h3 class="post-card__title">No issues yet</h3>
+    <p class="post-card__excerpt">The first issue is coming soon. <a href="{{ '/' | relative_url }}#subscribe">Subscribe</a> to get it first!</p>
+  </div>
+  {% endif %}
+</div>

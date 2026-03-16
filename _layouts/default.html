@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+
+  <!-- SEO -->
+  {% seo %}
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="{{ '/assets/img/favicon.svg' | relative_url }}">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" id="main-nav">
+    <div class="nav__container">
+      <a href="{{ '/' | relative_url }}" class="nav__logo" id="nav-logo">
+        <span class="nav__logo-icon">⚡</span>
+        <span class="nav__logo-text">Sovereign<span class="nav__logo-accent">Fit</span></span>
+      </a>
+      <div class="nav__links" id="nav-links">
+        <a href="{{ '/' | relative_url }}" class="nav__link" id="nav-home">Home</a>
+        <a href="{{ '/archive/' | relative_url }}" class="nav__link" id="nav-archive">Archive</a>
+        <a href="{{ '/about/' | relative_url }}" class="nav__link" id="nav-about">About</a>
+        <a href="#subscribe" class="nav__cta" id="nav-subscribe">Subscribe Free</a>
+      </div>
+      <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main" id="main-content">
+    {{ content }}
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <div class="footer__container">
+      <div class="footer__brand">
+        <span class="footer__logo">⚡ Sovereign<span class="footer__logo-accent">Fit</span></span>
+        <p class="footer__tagline">Build your empire. Own your audience.</p>
+      </div>
+      <div class="footer__links">
+        <a href="{{ '/' | relative_url }}">Home</a>
+        <a href="{{ '/archive/' | relative_url }}">Archive</a>
+        <a href="{{ '/about/' | relative_url }}">About</a>
+        <a href="https://github.com/sovereign-fit/community" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <div class="footer__copy">
+        <p>&copy; {{ 'now' | date: "%Y" }} Sovereign Fit. All rights reserved.</p>
+        <p class="footer__powered">Powered by GitHub Pages</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Nav Script -->
+  <script>
+    const toggle = document.getElementById('nav-toggle');
+    const links = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      links.classList.toggle('nav__links--open');
+      toggle.classList.toggle('nav__toggle--active');
+    });
+
+    // Sticky nav
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('main-nav');
+      if (window.scrollY > 50) {
+        nav.classList.add('nav--scrolled');
+      } else {
+        nav.classList.remove('nav--scrolled');
+      }
+    });
+  </script>
+</body>
+</html>

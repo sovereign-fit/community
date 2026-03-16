@@ -1,0 +1,112 @@
+---
+layout: default
+---
+
+<article class="post" id="post-{{ page.slug }}">
+  <!-- Post Header -->
+  <header class="post__header">
+    <div class="post__meta">
+      <time class="post__date" datetime="{{ page.date | date_to_xmlschema }}">
+        {{ page.date | date: "%B %d, %Y" }}
+      </time>
+      <span class="post__issue">Issue #{{ page.issue | default: "?" }}</span>
+    </div>
+    <h1 class="post__title">{{ page.title }}</h1>
+    {% if page.subtitle %}
+    <p class="post__subtitle">{{ page.subtitle }}</p>
+    {% endif %}
+  </header>
+
+  <!-- Post Content -->
+  <div class="post__content">
+    {{ content }}
+  </div>
+
+  <!-- Feedback Poll -->
+  <div class="poll" id="feedback-poll">
+    <h3 class="poll__title">How was this issue?</h3>
+    <p class="poll__subtitle">Your feedback helps us improve every week.</p>
+    <div class="poll__options">
+      <button class="poll__btn" data-vote="love" id="poll-love" onclick="castVote('love')">
+        <span class="poll__emoji">🔥</span>
+        <span class="poll__label">Love it</span>
+      </button>
+      <button class="poll__btn" data-vote="okay" id="poll-okay" onclick="castVote('okay')">
+        <span class="poll__emoji">👍</span>
+        <span class="poll__label">It's okay</span>
+      </button>
+      <button class="poll__btn" data-vote="meh" id="poll-meh" onclick="castVote('meh')">
+        <span class="poll__emoji">😐</span>
+        <span class="poll__label">Not great</span>
+      </button>
+    </div>
+    <p class="poll__thanks" id="poll-thanks" style="display:none;">Thanks for your feedback! 🙏</p>
+  </div>
+
+  <!-- Giscus Comments -->
+  {% if page.comments != false %}
+  <div class="comments" id="comments-section">
+    <h3 class="comments__title">💬 Join the Discussion</h3>
+    <p class="comments__subtitle">Sign in with your free GitHub account to comment. This keeps our community bot-free.</p>
+    <script src="https://giscus.app/client.js"
+      data-repo="{{ site.giscus.repo }}"
+      data-repo-id="{{ site.giscus.repo_id }}"
+      data-category="{{ site.giscus.category }}"
+      data-category-id="{{ site.giscus.category_id }}"
+      data-mapping="{{ site.giscus.mapping }}"
+      data-strict="0"
+      data-reactions-enabled="{{ site.giscus.reactions_enabled }}"
+      data-emit-metadata="{{ site.giscus.emit_metadata }}"
+      data-input-position="top"
+      data-theme="{{ site.giscus.theme }}"
+      data-lang="{{ site.giscus.lang }}"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </div>
+  {% endif %}
+</article>
+
+<!-- Post Navigation -->
+<nav class="post-nav" id="post-navigation">
+  {% if page.previous.url %}
+  <a href="{{ page.previous.url | relative_url }}" class="post-nav__link post-nav__link--prev" id="prev-post">
+    <span class="post-nav__label">← Previous</span>
+    <span class="post-nav__title">{{ page.previous.title }}</span>
+  </a>
+  {% endif %}
+  {% if page.next.url %}
+  <a href="{{ page.next.url | relative_url }}" class="post-nav__link post-nav__link--next" id="next-post">
+    <span class="post-nav__label">Next →</span>
+    <span class="post-nav__title">{{ page.next.title }}</span>
+  </a>
+  {% endif %}
+</nav>
+
+<script>
+  function castVote(choice) {
+    const btns = document.querySelectorAll('.poll__btn');
+    btns.forEach(btn => {
+      btn.disabled = true;
+      if (btn.dataset.vote === choice) {
+        btn.classList.add('poll__btn--selected');
+      }
+    });
+    document.getElementById('poll-thanks').style.display = 'block';
+    // Store in localStorage to prevent double voting
+    localStorage.setItem('poll_' + window.location.pathname, choice);
+  }
+
+  // Check if already voted
+  document.addEventListener('DOMContentLoaded', () => {
+    const prev = localStorage.getItem('poll_' + window.location.pathname);
+    if (prev) {
+      const btns = document.querySelectorAll('.poll__btn');
+      btns.forEach(btn => {
+        btn.disabled = true;
+        if (btn.dataset.vote === prev) btn.classList.add('poll__btn--selected');
+      });
+      document.getElementById('poll-thanks').style.display = 'block';
+    }
+  });
+</script>
