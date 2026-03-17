@@ -207,9 +207,69 @@ layout: null
     function goToSignup(e) {
       e.preventDefault();
       var email = document.getElementById('emailInput').value.trim();
-      // Redirect to Systeme.io squeeze page (handles CRM + thank you page)
-      var url = 'https://bcox.systeme.io/6c3f8893';
-      window.location.href = url;
+      var btn = document.getElementById('submitBtn');
+      var formWrapper = document.querySelector('.fallback-form');
+      var trustText = document.querySelector('.trust-text');
+
+      // Validate email
+      if (!email || !email.includes('@') || !email.includes('.')) {
+        var inp = document.getElementById('emailInput');
+        inp.style.borderColor = '#ff6b6b';
+        inp.setAttribute('placeholder', 'Please enter a valid email');
+        return;
+      }
+
+      // Show loading state
+      btn.textContent = 'Joining...';
+      btn.style.pointerEvents = 'none';
+      btn.style.opacity = '0.7';
+
+      // Send to Systeme.io via hidden iframe form (bypasses CORS)
+      var iframe = document.createElement('iframe');
+      iframe.name = 'systemeio_submit';
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+
+      var form = document.createElement('form');
+      form.method = 'POST';
+      form.action = 'https://bcox.systeme.io/6c3f8893';
+      form.target = 'systemeio_submit';
+
+      // Add email field
+      var emailField = document.createElement('input');
+      emailField.type = 'hidden';
+      emailField.name = 'email';
+      emailField.value = email;
+      form.appendChild(emailField);
+
+      document.body.appendChild(form);
+      form.submit();
+
+      // Also try the JSON API via no-cors fetch (belt and suspenders)
+      try {
+        fetch('https://bcox.systeme.io/6c3f8893', {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            optin: {
+              fields: { email: email },
+              timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+              popupId: null,
+              isDesktop: window.innerWidth > 768,
+              entityId: '261f56da-ac90-498c-8d96-a8d221760e41',
+              checkBoxIds: []
+            }
+          })
+        });
+      } catch(err) { /* silent fail, iframe form is the primary method */ }
+
+      // Show success message after a brief delay
+      setTimeout(function() {
+        formWrapper.innerHTML = '<div style="padding:24px;background:rgba(0,212,170,0.1);border:1px solid rgba(0,212,170,0.3);border-radius:16px;animation:fadeIn 0.5s ease"><div style="font-size:32px;margin-bottom:12px">🎉</div><div style="color:#00d4aa;font-size:20px;font-weight:700;margin-bottom:8px">You\'re in!</div><div style="color:#9898b0;font-size:15px">Check your inbox for a welcome message.</div></div>';
+        trustText.textContent = 'Welcome to the SovereignFit community!';
+        trustText.style.color = '#00d4aa';
+      }, 1500);
     }
 
     document.getElementById('emailInput').addEventListener('keypress', function(e) {
