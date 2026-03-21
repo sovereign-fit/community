@@ -14,30 +14,20 @@ Your clients are flooding in on GLP-1 medications like Ozempic, Wegovy, and Moun
 ## 💼 Business Strategies
 
 ### Package a "GLP-1 Strong" Program
-Stop selling standard personal training and create a specialized GLP-1 companion program. Market your services as the ultimate medical-adjacent solution for "muscle preservation" and preventing "Ozempic Butt." This positioning allows you to charge premium pricing and secure long-term commitments.
+Stop selling standard personal training and create a specialized GLP-1 companion program. Market your services as the ultimate medical-adjacent solution for "muscle preservation" and preventing "Ozempic Butt." 
 
 ### Automate Plateau Check-Ins
-Clinical trials show that GLP-1 weight loss predictably plateaus around the 60-week mark. Automate your gym's CRM to flag clients at the 9-to-12-month timeline. Use this touchpoint to shift their goals away from the scale and toward progressive overload and body composition victories.
-
----
-
-## 🧠 Coaching Concepts
-
-### The Scheduled Hydration Protocol
-GLP-1 drugs suppress the hypothalamus, meaning natural thirst signals will fail your clients. Coaching them to "drink when thirsty" is no longer effective and leads to nausea and muscle cramps. Implement a strict strategy aiming for 3.7 liters daily with mandatory electrolyte supplementation.
-
-### Combatting "Ozempic Butt"
-Rapid fat and muscle loss often causes sagging skin, commonly referred to as "Ozempic Butt." To prevent this, mandate a strict daily protein intake of 1.6g/kg of body weight. Pair this with mandatory resistance training 2-3 times a week, featuring glute-focused movements like hip thrusts and Bulgarian split squats.
+Clinical trials show that GLP-1 weight loss predictably plateaus around the 60-week mark. Automate your gym's CRM to flag clients at the 9-to-12-month timeline to shift focus toward progressive overload.
 
 ---
 
 ## 🔗 Live Newsletter (Google Doc)
-<iframe src="https://docs.google.com/document/d/e/YOUR_PUBLISHED_ID_HERE/pub?embedded=true" width="100%" height="600px"></iframe>
+<iframe src="https://docs.google.com/document/d/e/2PACX-1vRP4jQcz6W6C-xEnok3S7Qw02QNN2T9u4H-W3OD1rlLz_GqTQww9GMjJZywlGhlxjvwQfmzGnZafqqJ/pub?embedded=true" width="100%" height="600px"></iframe>
 
 ---
 
 ### 🔧 Tool of the Week: Sovereign Outreach Engine
-Struggling to track client milestones? The **Sovereign Outreach Engine** puts your entire communication pipeline on autopilot. Capture leads, trigger automated SMS check-ins, and manage your business without trading time for money.
+The **Sovereign Outreach Engine** puts your entire client communication pipeline on autopilot. Capture leads, trigger automated SMS check-ins, and manage your business without trading time for money.
 
 [→ Start Building Your Empire](https://sovereign-fit.github.io/)
 
