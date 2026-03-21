@@ -22,8 +22,13 @@ Clinical trials show that GLP-1 weight loss predictably plateaus around the 60-w
 ---
 
 ## 🔗 Live Newsletter (Google Doc)
-<iframe src="https://docs.google.com/document/d/e/2PACX-1vRP4jQcz6W6C-xEnok3S7Qw02QNN2T9u4H-W3OD1rlLz_GqTQww9GMjJZywlGhlxjvwQfmzGnZafqqJ/pub?embedded=true" width="100%" height="600px"></iframe>
-
+<div style="position: relative; padding-bottom: 120%; height: 0; overflow: hidden; border: 1px solid #e1e4e8; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+  <iframe 
+    src="https://docs.google.com/document/d/e/2PACX-1vRP4jQcz6W6C-xEnok3S7Qw02QNN2T9u4H-W3OD1rlLz_GqTQww9GMjJZywlGhlxjvwQfmzGnZafqqJ/pub?embedded=true" 
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" 
+    allowfullscreen>
+  </iframe>
+</div>
 ---
 
 ### 🔧 Tool of the Week: Sovereign Outreach Engine
