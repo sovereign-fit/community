@@ -22,7 +22,7 @@ Clinical trials show that GLP-1 weight loss predictably plateaus around the 60-w
 ---
 
 ## 🔗 Live Newsletter Content
-<div style="position: relative; width: 100%; padding-bottom: 150%; height: 0; overflow: hidden; border: 1px solid #e1e4e8; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin: 20px 0;">
+<div style="margin: 20px -5%; width: 110%; position: relative; padding-bottom: 140%; height: 0; overflow: hidden; border: 1px solid #e1e4e8; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
   <iframe 
     src="https://docs.google.com/document/d/e/2PACX-1vRP4jQcz6W6C-xEnok3S7Qw02QNN2T9u4H-W3OD1rlLz_GqTQww9GMjJZywlGhlxjvwQfmzGnZafqqJ/pub?embedded=true" 
     style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" 
@@ -30,6 +30,15 @@ Clinical trials show that GLP-1 weight loss predictably plateaus around the 60-w
   </iframe>
 </div>
 
+<style>
+/* This small bit of code ensures it stays centered and looks wide on small screens */
+@media (max-width: 600px) {
+  div[style*="width: 110%"] {
+    width: 100% !important;
+    margin: 20px 0 !important;
+  }
+}
+</style>
 ---
 
 <div class="affiliate-box">
